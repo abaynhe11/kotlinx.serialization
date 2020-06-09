@@ -4,7 +4,6 @@
 
 package kotlinx.serialization
 
-import kotlinx.serialization.internal.*
 import kotlinx.serialization.builtins.*
 import java.lang.reflect.*
 import kotlin.reflect.*
@@ -19,7 +18,7 @@ internal open class TypeBase<T>
  * Consider using Kotlin's [typeOf] and [KType] since they can
  * also provide information about nullability.
  */
-@Deprecated("Consider using Kotlin type token instead", ReplaceWith("typeOf()"), level = DeprecationLevel.WARNING)
+@Deprecated("Consider using Kotlin type token instead", ReplaceWith("typeOf()"), level = DeprecationLevel.ERROR)
 public inline fun <reified T> typeTokenOf(): Type {
     val base = object : TypeBase<T>() {}
     val superType = base::class.java.genericSuperclass!!
